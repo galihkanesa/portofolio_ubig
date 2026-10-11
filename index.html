@@ -5,34 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio Galih Tegar As'abiman - Junior Web Developer">
   <title>Galih Tegar — Portfolio</title>
+  <script>
+    if (sessionStorage.getItem("portfolio-opening-complete") !== "1") {
+      window.location.replace("indexop.html");
+    }
+  </script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="noise"></div>
 
   <header class="navbar">
-    <a class="brand" href="#home" aria-label="Galih Tegar home">
-      <span class="brand-mark">GT</span>
-      <span>GALIH<span class="muted">.DEV</span></span>
-    </a>
+    <div class="brand">
+      <button class="brand-mark theme-toggle" type="button" aria-label="Ganti ke mode terang" aria-pressed="false" title="Ganti tema">
+        <img class="theme-icon" src="sun_icon.png" alt="">
+      </button>
+      <a class="brand-name" href="#home">GALIH TEGAR</a>
+    </div>
 
-    <nav class="nav-links">
+    <nav class="nav-links" id="site-menu" aria-label="Navigasi utama">
       <a class="active" href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
     </nav>
 
+    <button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="site-menu">
+      <span></span><span></span><span></span>
+    </button>
     <a class="nav-button" href="#contact">Let's Talk <span>↗</span></a>
   </header>
 
   <main>
     <section class="hero section" id="home">
       <div class="hero-copy">
-        <div class="eyebrow"><span></span> AVAILABLE FOR LEARNING & PROJECTS</div>
+        <div class="eyebrow"><span></span> PROJECTS PORTOFOLIO</div>
         <p class="intro">Hi, I'm <strong>Galih Tegar As'abiman</strong></p>
 
-        <h1>FULL<br><em>STACK</em> DEVELOPER</h1>
+        <h1>FULL<br><em>STACK</em><br>DEVELOPER</h1>
 
         <p class="hero-text">
           Pelajar RPL yang sedang mengembangkan kemampuan di bidang
@@ -47,7 +57,7 @@
 
         <div class="mini-info">
           <div><small>CLASS</small><strong>X RPL 1</strong></div>
-          <div><small>FOCUS</small><strong>WEB DEVELOPMENT</strong></div>
+          <div><small>FOCUS</small><strong>FULL STACK DEVELOPER</strong></div>
           <div><small>LOCATION</small><strong>MALANG, ID</strong></div>
         </div>
       </div>
@@ -64,29 +74,43 @@
 
           <div class="photo-wrap">
             <div class="photo-placeholder">
-              <div class="avatar">GT</div>
-              <span>YOUR PHOTO</span>
+              <img src="foto_profil.jpeg" alt="foto profil">
             </div>
           </div>
 
           <div class="profile-bottom">
-            <div>
+            <div class="profile-title">
               <small>JUNIOR</small>
               <h2>WEB<br>DEVELOPER</h2>
             </div>
-            <div class="arrow-box">↗</div>
+            <div class="profile-socials" aria-label="Media sosial">
+              <a class="profile-social-link" href="https://github.com/galihkanesa" target="_blank" rel="noopener noreferrer" aria-label="Buka profil GitHub">
+                <img class="profile-social-icon github-icon" src="Github_icon.png" alt="" title="GitHub">
+              </a>
+              <a class="profile-social-link" href="https://www.instagram.com/tgrrr_00?psln=OG8zd2Q2bWl6cTgy" target="_blank" rel="noopener noreferrer" aria-label="Buka profil Instagram">
+                <img class="profile-social-icon" src="instagram_icon.png" alt="" title="Instagram">
+              </a>
+            </div>
           </div>
         </div>
 
         <div class="floating-tag tag-one">HTML / CSS / JS</div>
-        <div class="floating-tag tag-two">✦ CREATIVE CODE</div>
       </div>
     </section>
 
     <div class="tech-strip" aria-label="Technology skills">
-      <span>HTML</span><i>•</i><span>CSS</span><i>•</i><span>JAVASCRIPT</span>
-      <i>•</i><span>GIT</span><i>•</i><span>GITHUB</span><i>•</i>
-      <span>VERCEL</span><i>•</i><span>RESPONSIVE DESIGN</span>
+      <div class="tech-track">
+        <div class="tech-group">
+          <span>HTML</span><i>•</i><span>CSS</span><i>•</i><span>JAVASCRIPT</span>
+          <i>•</i><span>GIT</span><i>•</i><span>GITHUB</span><i>•</i>
+          <span>VERCEL</span><i>•</i><span>RESPONSIVE DESIGN</span>
+        </div>
+        <div class="tech-group" aria-hidden="true">
+          <span>HTML</span><i>•</i><span>CSS</span><i>•</i><span>JAVASCRIPT</span>
+          <i>•</i><span>GIT</span><i>•</i><span>GITHUB</span><i>•</i>
+          <span>VERCEL</span><i>•</i><span>RESPONSIVE DESIGN</span>
+        </div>
+      </div>
     </div>
 
     <section class="section about" id="about">
@@ -115,40 +139,82 @@
         <p>Beberapa project latihan yang saya kerjakan.</p>
       </div>
 
-      <div class="project-grid">
+      <div class="project-grid" aria-label="Daftar project, geser ke samping untuk melihat lainnya">
         <article class="project project-large">
           <div class="project-number">01</div>
-          <div class="project-art art-profile">
-            <span>PROFILE</span>
-            <strong>RESPONSIVE<br>WEB</strong>
+          <div class="project-art project-preview">
+            <div class="preview-toolbar" aria-hidden="true">
+              <span class="preview-dots"><i></i><i></i><i></i></span>
+              <span class="preview-address">tugas-1-galih-smkn1kepanjen.vercel.app</span>
+            </div>
+            <iframe class="preview-frame" src="https://tugas-1-galih-smkn1kepanjen.vercel.app/" title="Pratinjau project mengenal HTML dan CSS" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe>
           </div>
           <div class="project-meta">
-            <div><h3>Profil Digital</h3><p>Personal profile website dengan layout responsive.</p></div>
-            <span>HTML + CSS + JS</span>
+            <div>
+              <h3>mengenal html dan css</h3>
+              <p>Project pertama untuk mempelajari dasar-dasar HTML dan CSS.</p>
+              <a class="project-link" href="https://tugas-1-galih-smkn1kepanjen.vercel.app/" target="_blank" rel="noopener noreferrer">Buka project <span>↗</span></a>
+            </div>
+            <span>HTML + CSS</span>
           </div>
         </article>
 
         <article class="project">
           <div class="project-number">02</div>
-          <div class="project-art art-market">
-            <span>MARKET</span>
-            <strong>UI<br>CONCEPT</strong>
+          <div class="project-art project-preview">
+            <div class="preview-toolbar" aria-hidden="true">
+              <span class="preview-dots"><i></i><i></i><i></i></span>
+              <span class="preview-address">tugas-2-galihtegar-smkn1kepanjen.vercel.app</span>
+            </div>
+            <iframe class="preview-frame" src="https://tugas-2-galihtegar-smkn1kepanjen.vercel.app/" title="Pratinjau project Mobile Responsive Design" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe>
           </div>
           <div class="project-meta">
-            <div><h3>Marketplace UI</h3><p>Konsep homepage marketplace sederhana.</p></div>
-            <span>UI / CSS</span>
+            <div>
+              <h3>Mobile Responsive Design</h3>
+              <p>Desain website yang menyesuaikan ukuran layar perangkat mobile.</p>
+              <a class="project-link" href="https://tugas-2-galihtegar-smkn1kepanjen.vercel.app/" target="_blank" rel="noopener noreferrer">Buka project <span>↗</span></a>
+            </div>
+            <span>HTML + CSS</span>
           </div>
         </article>
 
         <article class="project">
           <div class="project-number">03</div>
-          <div class="project-art art-deploy">
-            <span>DEPLOY</span>
-            <strong>GIT →<br>VERCEL</strong>
+          <div class="project-art project-preview">
+            <div class="preview-toolbar" aria-hidden="true">
+              <span class="preview-dots"><i></i><i></i><i></i></span>
+              <span class="preview-address">tugas-3-galih-smkn1kepanjen.vercel.app</span>
+            </div>
+            <iframe class="preview-frame" src="https://tugas-3-galih-smkn1kepanjen.vercel.app/" title="Pratinjau project Web Responsive" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe>
           </div>
           <div class="project-meta">
-            <div><h3>Web Deployment</h3><p>Latihan workflow GitHub sampai website online.</p></div>
-            <span>GIT + VERCEL</span>
+            <div>
+              <h3>Web responsive</h3>
+              <p>membuat web yang responsive dan dapat di klik</p>
+              <a class="project-link" href="https://tugas-3-galih-smkn1kepanjen.vercel.app/" target="_blank" rel="noopener noreferrer">Buka project <span>↗</span></a>
+            </div>
+            <span>HTML + CSS + JS</span>
+          </div>
+        </article>
+
+        <!-- Salin blok ini untuk menambahkan project baru. -->
+        <article class="project">
+          <div class="project-number">04</div>
+          <div class="project-art project-preview">
+            <div class="preview-toolbar" aria-hidden="true">
+              <span class="preview-dots"><i></i><i></i><i></i></span>
+              <span class="preview-address">Preview project portfolio</span>
+            </div>
+            <img class="preview-screenshot" src="Screenshot%202026-10-11%20101554.png" alt="Tangkapan layar project portfolio" loading="lazy" decoding="async">
+          </div>
+          <div class="project-meta">
+            <div>
+              <h3>Create portofolio
+              </h3>
+              <p>Membuat portofolio pribadi untuk menampilkan project dan keterampilan.</p>
+              <a class="project-link" href="https://url-project-04-anda.com" target="_blank" rel="noopener noreferrer">Buka project <span>↗</span></a>
+            </div>
+            <span>HTML + CSS + JS</span>
           </div>
         </article>
       </div>
@@ -173,7 +239,7 @@
         <div class="section-label">05 / CONTACT</div>
         <h2>Have an idea?<br><em>Let's build it.</em></h2>
         <p>Terbuka untuk project sekolah, latihan coding, dan kolaborasi sederhana.</p>
-        <a class="primary-btn" href="mailto:emailkamu@example.com">Kirim Email <span>↗</span></a>
+        <a class="primary-btn" href="halaman_email.html">Kirim Email <span>↗</span></a>
       </div>
     </section>
   </main>

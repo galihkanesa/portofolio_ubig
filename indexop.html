@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Opening portfolio Galih Tegar As'abiman">
+  <title>Menghubungkan — Galih Tegar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="network-opening" aria-labelledby="network-opening-title" aria-describedby="network-opening-status">
+    <div class="network-error-page">
+      <svg class="network-error-icon" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M10 4.75h18l10 10V42H10z"></path>
+        <path d="M28 5v10h10M18 25h.01M30 25h.01M18 34c3.5-4 8.5-4 12 0"></path>
+      </svg>
+      <h2 id="network-opening-title">Situs ini tidak dapat dijangkau</h2>
+      <p class="network-message" id="network-opening-status" aria-live="polite">
+        Koneksi terputus. Mencoba menghubungkan kembali...
+      </p>
+      <p class="network-error-code">ERR_CONNECTION_TIMED_OUT</p>
+      <div class="network-actions">
+        <button class="network-retry" type="button">Muat ulang</button>
+        <button class="network-continue" type="button">Buka website</button>
+      </div>
+      <noscript>
+        <p class="network-message"><a href="index.html">Lanjut ke website</a></p>
+      </noscript>
+    </div>
+  </section>
+  <script>
+    const networkStatus = document.querySelector("#network-opening-status");
+    const retryButton = document.querySelector(".network-retry");
+    const continueButton = document.querySelector(".network-continue");
+    let openingTimer;
+    let statusTimer;
+
+    function openPortfolio() {
+      window.clearTimeout(openingTimer);
+      window.clearTimeout(statusTimer);
+      sessionStorage.setItem("portfolio-opening-complete", "1");
+      window.location.replace("index.html");
+    }
+
+    function startOpening() {
+      window.clearTimeout(openingTimer);
+      window.clearTimeout(statusTimer);
+      networkStatus.textContent = "Koneksi terputus. Mencoba menghubungkan kembali...";
+      statusTimer = window.setTimeout(() => {
+        networkStatus.textContent = "Koneksi tersambung kembali. Membuka website...";
+      }, 2600);
+      openingTimer = window.setTimeout(openPortfolio, 4300);
+    }
+
+    if (sessionStorage.getItem("portfolio-opening-complete") === "1") {
+      window.location.replace("index.html");
+    } else {
+      startOpening();
+      retryButton.addEventListener("click", startOpening);
+      continueButton.addEventListener("click", openPortfolio);
+    }
+  </script>
+</body>
+</html>
